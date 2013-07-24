@@ -1,0 +1,316 @@
+@import "variables.less";
+@import "mixins.less";
+
+@b3kHeaderHeight: 90px;
+@b3kBannerHeight: 50px;
+@b3kNavbarHeight: 40px;
+@b3kFooterHeight: 50px;
+
+@b3kFontPath:   "../fonts";
+
+@b3kApplicationSwitcherColor: #1a4876;
+
+@b3kSidebarWidth: 10%;
+@b3kContentWidth: 100 - @b3kSidebarWidth;
+
+
+/*Bach3 Fontspring Fonts*/
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and 
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      FontSite Inc.
+ * License URL: http://www.fontspring.com/fflicense/fontsite
+ *
+ * Vendor:      Mark Simonson Studio
+ * License URL: http://www.fontspring.com/fflicense/mark-simonson-studio
+ *
+ *
+ */
+
+@font-face {
+  font-family: 'ClarendonFSMedium';
+  src: url('@{b3kFontPath}/Clarendon-Medium-webfont.eot');
+  src: local('☺'), url('@{b3kFontPath}/Clarendon-Medium-webfont.woff') format('woff'), url('@{b3kFontPath}/Clarendon-Medium-webfont.ttf') format('truetype'), url('@{b3kFontPath}/Clarendon-Medium-webfont.svg#webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ProximaNovaBold';
+  src: url('@{b3kFontPath}/Proxima_Nova_Bold-webfont.eot');
+  src: local('☺'), url('@{b3kFontPath}/Proxima_Nova_Bold-webfont.woff') format('woff'), url('@{b3kFontPath}/Proxima_Nova_Bold-webfont.ttf') format('truetype'), url('@{b3kFontPath}/Proxima_Nova_Bold-webfont.svg#webfont0R9JsQdw') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'ProximaNovaRegular';
+    src: url('@{b3kFontPath}/ProximaNova-Reg-webfont.eot');
+    src: url('@{b3kFontPath}/ProximaNova-Reg-webfont.eot?iefix') format('eot'),
+         url('@{b3kFontPath}/ProximaNova-Reg-webfont.woff') format('woff'),
+         url('@{b3kFontPath}/ProximaNova-Reg-webfont.ttf') format('truetype'),
+         url('@{b3kFontPath}/ProximaNova-Reg-webfont.svg#webfonttLdMzI8n') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+html, body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -@b3kFooterHeight;
+    background: url(../../img/wu-f.png) no-repeat 90% 100%;
+}
+
+#footer {
+    height: @b3kFooterHeight;
+}
+
+#push {
+    height: @b3kFooterHeight;
+    .clearfix();
+}
+
+#footer {
+    background-color: @wuDarkBlue;
+    line-height: @b3kFooterHeight;
+    color: @white;
+}  
+
+#b3k-content {
+    
+    .clearfix();
+
+    top: @b3kHeaderHeight;
+    bottom: @b3kFooterHeight;
+    left: 0px;
+    right: 0px;
+    
+    #b3k-content-main {
+        width: @b3kContentWidth;
+        float: left;
+        padding-bottom: @b3kFooterHeight;
+    }
+    
+    #b3k-content-sidebar {
+
+        background-color: @wuBachletGrey;
+        background-color: fade(@wuBachletGrey, 50%);
+
+        // make it full height, according to
+        // http://stackoverflow.com/questions/6837603/yet-another-html-css-layout-challenge-full-height-sidebar-with-sticky-footer
+        width: @b3kSidebarWidth;
+        position: absolute;
+
+        right:0;
+        top: @b3kHeaderHeight;
+        bottom: @b3kFooterHeight;
+        
+        .b3k-bachlet-container {
+            margin-top: 2em;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+    }
+}
+
+
+@media (max-width: 1200px) {
+
+    /*  Remove the sidebar on resolution < 1200px   */
+    #b3k-content #b3k-content-sidebar {
+        display: none;
+    }
+
+    #b3k-content #b3k-content-main {
+        width:100%;
+    }
+}
+
+
+.wu-banner {
+    
+    color: @textColor;
+    background-color: @white;
+        
+    padding-left: @gridGutterWidth;
+    padding-right: @gridGutterWidth;
+    
+    height: @b3kBannerHeight;
+    line-height: @b3kBannerHeight;
+    
+    a {
+        color: @textColor;
+    }
+    
+    .language-switcher {
+        .pull-right();
+        .muted();
+    }
+    
+}
+
+.wu-navbar {
+    
+    .clearfix();
+    
+    height: @b3kNavbarHeight;
+    line-height: @b3kNavbarHeight;
+    
+    color: @white;
+    
+    background-color: @wuDarkBlue;
+    
+    margin-bottom: 0;
+    
+    padding-right: @gridGutterWidth;
+    
+    
+    a {
+        color: @white
+    }
+    
+    .application-name {
+        
+        .pull-left();
+        
+        // keep height + x and -x margin in sync!
+        @appNameOffset: 7px;
+        height: @navbarHeight + @appNameOffset;
+        margin-top: -@appNameOffset;
+        line-height: @navbarHeight + @appNameOffset;
+        
+        background-color: @wuCyanBlue;
+                
+        padding-left: @gridGutterWidth;
+        padding-right: @gridGutterWidth;
+        
+        font-weight: normal;
+        font-family: "ProximaNovaBold", sans-serif;
+        
+    }
+    
+    .application-switcher {
+        
+        .pull-left();
+        
+        //padding-left: @gridGutterWidth;
+        //padding-right: @gridGutterWidth;
+        
+        background-color: @b3kApplicationSwitcherColor;
+        
+        a.dropdown-toggle {
+            display: block;
+            height: @navbarHeight;
+            width: @navbarHeight;
+            text-align:center;
+            
+            &:hover, &:focus {
+                text-decoration: none;
+            }
+        }
+        
+        .dropdown-menu {
+            
+            font-size: @baseFontSize;
+            line-height: @baseLineHeight;
+            .border-radius(0);
+            border: none;
+            .box-shadow(3px 3px 7px rgba(0, 0, 0, 0.2));
+            color: @white;
+            background-color: @b3kApplicationSwitcherColor;
+            
+            padding: 0;
+            top: @navbarHeight - 4px;
+            
+            h3 {
+                margin: 0;
+                padding: 10px;
+                color: @white;
+                font-size: 1.1em;
+                line-height: 1em;
+            }
+            
+            ul {
+                list-style: none;
+                margin: 0;
+            }
+            
+            a {
+                display: block;
+                white-space: nowrap;
+                padding: 8px 20px 8px 10px;
+                line-height: 20px;
+                color: @white;
+                
+                &:hover {
+                    background-color: lighten(@b3kApplicationSwitcherColor,10%);
+                    text-decoration:none;
+                }
+                
+                &:before {
+                    content: "\f061 ";
+                    font-family: FontAwesome;
+                }
+            }               
+        }
+    }
+    
+    .application-name, .application-switcher {
+        font-size: 24px;
+    }
+    
+    .login-logout-links {
+        .pull-right();
+    }
+    
+}
+
+.b3k-application-navbar {
+    padding-top:4px;
+    background-color: @wuCyanBlue;
+    
+    .nav > li > a {
+        text-shadow: none;
+    }    
+}
+
+.navbar-inner {
+    .border-radius(0);
+    border: none;
+    .box-shadow(none);
+}
+
+/* remove rounded borders */
+.nav-tabs > li > a,
+.tabs-left > .nav-tabs > li > a {
+    .border-radius(0);
+}

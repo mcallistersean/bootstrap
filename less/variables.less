@@ -30,22 +30,39 @@
 @purple:                #7a43b6;
 
 
+// B3K/WU colors
+// -------------------------
+@wuDarkBlue:             #036;    //Pantone 282
+@greenishBlue:           #099;    //Pantone 313??
+@wuDarkGreyBlue:         #369;    //Pantone 646??
+@wuCyanBlue:             #09c;    //Pantone 2925??
+@wuPurple:               #639;    //Pantone 2597
+@wuMossGreen:            #063;    //Pantone 343
+@wuAcidGreen:            #62a044; //Pantone 369
+@wuStudyUndergradOrange: #f90;    //Pantone 144
+@wuGradschoolRed:        #c03;    //Pantone 1795
+@wuResearchTeachPurple:  #92499e;
+@wuPresseGreenishGrey:   #699;
+@wuAlumniMaroon:         #903;    //Pantone 1955
+@wuExecutiveBlue:        #039;    //Pantone Blue 072
+@wuZBPCareerGreen:       #066;    //Pantone 5473
+@wuBachletGrey:          #f0f3f7;
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             #2e3439;
 
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             @wuCyanBlue;
 @linkColorHover:        darken(@linkColor, 15%);
 
 
 // Typography
 // -------------------------
-@sansFontFamily:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-@serifFontFamily:       Georgia, "Times New Roman", Times, serif;
+@sansFontFamily:        ProximaNovaRegular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@serifFontFamily:       ClarendonMediumFS, Georgia, "Times New Roman", Times, serif;
 @monoFontFamily:        Monaco, Menlo, Consolas, "Courier New", monospace;
 
 @baseFontSize:          14px;
@@ -53,8 +70,8 @@
 @baseLineHeight:        20px;
 @altFontFamily:         @serifFontFamily;
 
-@headingsFontFamily:    inherit; // empty to use BS default, @baseFontFamily
-@headingsFontWeight:    bold;    // instead of browser default, bold
+@headingsFontFamily:    ClarendonFSMedium; // empty to use BS default, @baseFontFamily
+@headingsFontWeight:    normal;    // instead of browser default, bold
 @headingsColor:         inherit; // empty to use BS default, @textColor
 
 
@@ -181,16 +198,16 @@
 @navbarCollapseDesktopWidth:      @navbarCollapseWidth + 1;
 
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #ffffff;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
-@navbarBorder:                    darken(@navbarBackground, 12%);
+@navbarBackgroundHighlight:       @wuCyanBlue;
+@navbarBackground:                @wuCyanBlue;
+@navbarBorder:                    none;
 
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
-@navbarLinkColorHover:            @grayDark;
-@navbarLinkColorActive:           @gray;
+@navbarText:                      @white;
+@navbarLinkColor:                 @white;
+@navbarLinkColorHover:            none;
+@navbarLinkColorActive:           @wuCyanBlue;
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkBackgroundActive:      @white;
 
 @navbarBrandColor:                @navbarLinkColor;
 
