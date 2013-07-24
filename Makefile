@@ -35,8 +35,8 @@ build:
 	@echo "\n${HR}"
 	@echo "Bootstrap successfully built at ${DATE}."
 	@echo "${HR}\n"
-	@echo "Thanks for using Bootstrap,"
-	@echo "<3 @mdo and @fat\n"
+	#@echo "Thanks for using Bootstrap,"
+	#@echo "<3 @mdo and @fat\n"
 
 #
 # RUN JSHINT & QUNIT TESTS IN PHANTOMJS
@@ -62,7 +62,7 @@ clean:
 # recess & uglifyjs are required
 #
 
-bootstrap: bootstrap-img bootstrap-css bootstrap-js fontawesome-fonts
+bootstrap: bootstrap-img bootstrap-css bootstrap-js fonts
 
 
 #
@@ -105,11 +105,13 @@ bootstrap/img/*: img/*
 # Font Awesome
 #
 
-fontawesome-fonts: bootstrap/font/*
+fonts: bootstrap/font/*
 
-bootstrap/font/*: font-awesome/font/*
+bootstrap/font/*: font-awesome/font/* b3k-fonts/*
 	mkdir -p bootstrap/font
 	cp font-awesome/font/* bootstrap/font/
+	cp b3k-fonts/* bootstrap/font/
+
 
 
 #
@@ -133,4 +135,4 @@ watch:
 	watchr -e "watch('less/.*\.less') { system 'make' }"
 
 
-.PHONY: docs watch gh-pages bootstrap-img bootstrap-css bootstrap-js
+.PHONY: docs watch gh-pages bootstrap-img bootstrap-css bootstrap-js fonts

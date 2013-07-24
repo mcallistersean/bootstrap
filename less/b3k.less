@@ -6,7 +6,7 @@
 @b3kNavbarHeight: 40px;
 @b3kFooterHeight: 50px;
 
-@b3kFontPath:   "../fonts";
+@b3kFontPath:   "../font";
 
 @b3kApplicationSwitcherColor: #1a4876;
 
@@ -86,7 +86,7 @@ html, body {
     height: 100%;
     /* Negative indent footer by it's height */
     margin: 0 auto -@b3kFooterHeight;
-    background: url(../../img/wu-f.png) no-repeat 90% 100%;
+    background: url(../img/wu-f.png) no-repeat 90% 100%;
 }
 
 #footer {
@@ -95,7 +95,7 @@ html, body {
 
 #push {
     height: @b3kFooterHeight;
-    .clearfix();
+    //.clearfix();
 }
 
 #footer {
@@ -105,7 +105,7 @@ html, body {
 }  
 
 #b3k-content {
-    
+
     .clearfix();
 
     top: @b3kHeaderHeight;
@@ -228,6 +228,17 @@ html, body {
         background-color: @b3kApplicationSwitcherColor;
         
         a.dropdown-toggle {
+
+          &:before {
+            content: "\f105";
+            font-family: FontAwesome;
+          }
+
+          div.application-switcher.open a#application-switcher-toggle:before {
+            content: "\f107";
+            font-family: FontAwesome;
+          }
+
             display: block;
             height: @navbarHeight;
             width: @navbarHeight;
@@ -237,7 +248,11 @@ html, body {
                 text-decoration: none;
             }
         }
-        
+
+        &.open a.dropdown-toggle:before {
+            content: "\f107";
+        }
+
         .dropdown-menu {
             
             font-size: @baseFontSize;
@@ -255,8 +270,7 @@ html, body {
                 margin: 0;
                 padding: 10px;
                 color: @white;
-                font-size: 1.1em;
-                line-height: 1em;
+                font: 1.1em "ProximaNovaBold", "arial rounded bold", freesans, "nimbus sans", sans-serif;
             }
             
             ul {
@@ -277,7 +291,7 @@ html, body {
                 }
                 
                 &:before {
-                    content: "\f061 ";
+                    content: "\f061\2003";
                     font-family: FontAwesome;
                 }
             }               
@@ -297,7 +311,7 @@ html, body {
 .b3k-application-navbar {
     padding-top:4px;
     background-color: @wuCyanBlue;
-    
+    margin-bottom: 10px;
     .nav > li > a {
         text-shadow: none;
     }    
@@ -313,4 +327,25 @@ html, body {
 .nav-tabs > li > a,
 .tabs-left > .nav-tabs > li > a {
     .border-radius(0);
+}
+
+
+/* looks really cool, want to have that!*/
+::selection {
+	background: @linkColor; /* Safari */
+    color: @white;
+}
+
+
+// https://gist.github.com/nodesocket/5843712
+/* Flatten das boostrap */
+.well, .navbar-inner, .popover, .btn, .tooltip, input, select, textarea, pre, .progress, .modal, .add-on, .alert, .table-bordered, .nav>.active>a, .dropdown-menu, .tooltip-inner, .badge, .label, .img-polaroid {
+  -moz-box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+	border-collapse: collapse !important;
+	background-image: none !important;
 }
