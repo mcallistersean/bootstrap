@@ -62,7 +62,7 @@ clean:
 # recess & uglifyjs are required
 #
 
-bootstrap: bootstrap-img bootstrap-css bootstrap-js
+bootstrap: bootstrap-img bootstrap-css bootstrap-js fontawesome-fonts
 
 
 #
@@ -100,6 +100,16 @@ bootstrap-img: bootstrap/img/*
 bootstrap/img/*: img/*
 	mkdir -p bootstrap/img
 	cp img/* bootstrap/img/
+
+#
+# Font Awesome
+#
+
+fontawesome-fonts: bootstrap/font/*
+
+bootstrap/font/*: font-awesome/font/*
+	mkdir -p bootstrap/font
+	cp font-awesome/font/* bootstrap/font/
 
 
 #
